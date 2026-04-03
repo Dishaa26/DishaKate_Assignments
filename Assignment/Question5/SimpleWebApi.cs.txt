@@ -1,0 +1,18 @@
+using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Route("api/[controller]")]
+public class TestController : ControllerBase
+{
+    [HttpGet]
+    public string GetMessage()
+    {
+        return "Hello from GET!";
+    }
+
+    [HttpPost]
+    public string PostMessage([FromBody] string data)
+    {
+        return "You sent: " + data;
+    }
+}

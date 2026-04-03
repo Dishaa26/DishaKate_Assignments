@@ -1,0 +1,20 @@
+Dependency Injection (DI) in ASP.NET Core is used to automatically
+provide required services to classes.
+
+We register services in Program.cs:
+
+    builder.Services.AddTransient<IMyService, MyService>();
+
+Then use constructor injection:
+
+    public class HomeController
+    {
+        private readonly IMyService _service;
+
+        public HomeController(IMyService service)
+        {
+            _service = service;
+        }
+    }
+
+ASP.NET Core automatically injects MyService wherever IMyService is required.

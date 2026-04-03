@@ -1,0 +1,29 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Employee
+{
+    public string Name { get; set; }
+    public double Salary { get; set; }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<Employee> employees = new List<Employee>
+        {
+            new Employee { Name = "A", Salary = 45000 },
+            new Employee { Name = "B", Salary = 60000 },
+            new Employee { Name = "C", Salary = 75000 }
+        };
+
+        var result = employees.Where(e => e.Salary > 50000).ToList();
+
+        foreach (var emp in result)
+        {
+            Console.WriteLine(emp.Name + " - " + emp.Salary);
+        }
+    }
+}
